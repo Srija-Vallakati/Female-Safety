@@ -1,0 +1,163 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function myFun()
+		{
+			var un=document.myform.user.value;
+			var sub=document.myform.sub.value;
+			var age=document.myform.age.value;
+			var gen=document.myform.gender.value;
+			var numbers=/^[0-9]+$/;
+			var txtCheck = document.myform;
+			var sev=document.myform.sev.value;
+			var txtC=document.myform;
+			var per=document.myform.person.value;
+			if(un=="" || un==null)
+			{
+				alert("please enter your name");
+				document.myform.user.focus();
+				return false;
+			}	
+			if(un.length<5)
+			{
+				alert("enter min 6 characters");
+				document.myform.user.focus();
+				return false;
+			}
+			if(sub=="default")
+			{
+				alert("please select your problem");
+				document.myform.sub.focus();
+				return false;
+			}
+			if(age=="" || age==null)
+			{
+				alert("please enter age");
+				document.myform.age.focus();
+				return false;
+			}
+			if(!age.match(numbers))
+			{
+				alert("enter numbers only");
+				document.myform.age.focus();
+				return false;
+			}
+			if(parseInt(age)<18 || parseInt(age)>=70)
+			{
+				alert("your age should be between 18 and 70 ");
+				document.myform.age.focus();
+				return false;
+			}
+			if(gen=="" || gen==null)
+			{
+				alert("choose the gender");
+				document.myform.gender[1].focus();
+				return false;
+			}
+			if(txtCheck.textarea.value == "") 
+			{
+				alert("Please write your complaint");
+				txtCheck.textarea.focus();
+				return false;
+			}	
+			if(sev=="" || sev==null)
+			{
+				alert("choose the severity");
+				document.myform.sev[1].focus();
+				return false;
+			}
+			if(txtC.texta.value == "") 
+			{
+				alert("Please write your address");
+				txtC.texta.focus();
+				return false;
+			}
+			if(per=="default")
+			{
+				alert("please select your relation");
+				document.myform.person.focus();
+				return false;
+			}
+
+		}
+	</script>
+	<style>
+	body
+	{
+		background:rgba(0,0,0,0.8);
+		background-image:url("template2.jpg");
+		background-repeat:no-repeat;
+		background-size:110%,100%;
+		background-attachment:fixed;
+		color:white;
+	}
+	table
+	{
+		font-size:23px;
+	}
+	</style>
+</head>
+<body>
+	<form name="myform" action="complainti.jsp" onsubmit="return myFun()">
+		<table cellspacing="20" align="center">
+			<tr>
+			<th colspan="10" align="center"><h2>Your Complaint</h2></th>
+		     <tr>
+		     <tr>
+				<td>Name(Full Name):</td>
+				<td><input type="text" name="user"/></td>
+		     </tr>
+			 <tr>
+			<td>Subject:</td>
+			<td><select name="sub">
+			        <option value="default">please select problem</option>
+			        <option value="domestic violence">Domestic Violence</option>
+			        <option value="child abuse">Child Abuse</option>
+			        <option value="sexual harrasement">Sexual Harrassment</option>
+					<option value="harrassment">Harrassment</option>
+				 </select>
+		     </tr> 	
+		     <tr>
+			<td>Age:</td>
+			<td><input type="text" name="age"/></td>
+		      </tr> 
+		      <tr>
+			<td>Enter your Gender:</td>
+			<td><input type="radio" name="gender" value="male"/>Male<br>
+			        <input type="radio" name="gender" value="female"/>Female</td> 
+		      </tr>
+			  <tr>
+			   		<td>Your Complaint:</td>
+					<td><textarea cols="40" rows="10" name="textarea"></textarea>
+			   </tr> 
+			   <tr>
+			<td>Severity:</td>
+			<td><input type="radio" name="sev" value="high"/>HIGH<br>
+			        <input type="radio" name="sev" value="medium"/>MEDIUM<br>
+			        <input type="radio" name="sev" value="low"/>LOW<br>
+		       </tr>
+			   <tr>
+			   		<td>Address:</td>
+					<td><textarea cols="40" rows="5" name="texta"></textarea>
+			   </tr>
+			   <tr>
+			   		<td>Take a picture and Upload:</td>
+					<td><input type="file"/></td>
+			   </tr>
+			   <tr>
+			<td>Person the complaint is about</td>
+			<td><select name="person">
+			        <option value="default">select relationship</option>
+			        <option value="relative">Relative</option>
+			        <option value="friend">friend</option>
+			        <option value="stranger">stranger</option>
+					<option value="myself">Myself</option>
+		     </tr> 
+		    <tr>
+				<td><input type="submit" value="Give Complaint"/>
+				<td><input type="reset" value="clear"/>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

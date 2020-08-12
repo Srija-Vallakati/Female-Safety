@@ -1,0 +1,68 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function myFun()
+		{
+			var un=document.myform.username.value;
+			var pas=document.myform.password.value;
+			var upperStatus=/[A-Z]+/.test(pas);
+			var lowerStatus=/[a-z]+/.test(pas);
+			var specialStatus=/[@#$]+/.test(pas);
+			var flag=0;
+			if(un=="" || un==null)
+			{
+				alert("please enter username");
+				document.myform.username.focus();
+				return false;
+			}
+			if(pas=="" || pas==null)
+			{
+				alert("please enter your password");
+				document.myform.password.focus();
+				return false;
+			}
+		}
+	</script>
+	<style>
+	body
+	{
+		background-image:url("empowering-women.png");
+		background-repeat:no-repeat;
+		background-size:100%,50%;
+		background-attachment:fixed;
+	}
+	h1
+	{
+		font-weight:bold;
+		font-size:50px;
+	}
+	</style>
+</head>
+<body>
+	<form name="myform" method="POST" action="login.jsp" onsubmit="return myFun()">
+	<table align="center" cellspacing="20">
+	       <tr>
+		<th colspan="2"><h1>Member Login</h1></th>
+	       </tr>
+	        <tr>
+		<td>Enter UserName: </td>
+		<td><input type="text" placeholder="name" name="username"></td>
+	        </tr>
+			<tr>
+		<td>Enter your Password:</td>
+		<td><input type="password" placeholder="Password" name="password"></td>
+	         </tr>
+	         <tr>
+		<td colspan="2" align="center"><br><input type="submit" value="Login"/></td>
+	         </tr>
+	         <tr>
+		<td align="center" colspan="2"><a href="forgot.html">Forgot password</a></td>
+	         </tr>
+	         <tr>
+		<td align="center" colspan="2"><a href="register.html">Create your Account</a></td>
+	         </tr>
+	         
+	   </table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function myFun()
+		{
+			var un=document.myform.user.value;
+			var email=document.myform.email.value;
+			var pas=document.myform.pwd.value;
+			var pass=document.myform.pas.value;
+			var upperStatus=/[A-Z]+/.test(pas);
+			var lowerStatus=/[a-z]+/.test(pas);
+			var specialStatus=/[@#$]+/.test(pas);
+			var flag=0;
+			var age=document.myform.age.value;
+			var numbers=/^[0-9]+$/;
+			var gen=document.myform.gender.value;
+			if(un=="" || un==null)
+			{
+				alert("please enter your name");
+				document.myform.user.focus();
+				return false;
+			}
+			if(email=="" || email==null)
+			{
+				alert("please enter your email");
+				document.myform.email.focus();
+				return false;
+			}
+			if(pas=="" || pas==null)
+			{
+				alert("please enter your password");
+				document.myform.pwd.focus();
+				return false;
+			}
+			if(upperStatus && lowerStatus && specialStatus)
+			{
+				flag=1;
+			}
+			if(flag==0)
+			{
+				alert("please enter atleast one uppercase,lowercase and special characters");
+				document.myform.pwd.focus();
+				return false;
+			}
+			if(pass=="" || pass==null)
+			{
+				alert("please enter your confirm password");
+				document.myform.pas.focus();
+				return false;
+			}
+			if(pas!=pass)
+			{
+				alert("confirm password didn't match your password");
+				document.myform.pas.focus();
+				return false;
+			}
+			if(age=="" || age==null)
+			{
+				alert("please enter age");
+				document.myform.age.focus();
+				return false;
+			}
+			if(!age.match(numbers))
+			{
+				alert("enter numbers only");
+				document.myform.age.focus();
+				return false;
+			}
+			if(parseInt(age)<15 || parseInt(age)>=75)
+			{
+				alert("please enter age b/w 15 and 75");
+				document.myform.age.focus();
+				return false;
+			}
+			if(gen=="" || gen==null)
+			{
+				alert("choose the gender");
+				document.myform.gender[1].focus();
+				return false;
+			}
+		}
+	</script>
+	<style>
+	body
+	{
+		background-image:url("empowering-women.png");
+		background-repeat:no-repeat;
+		background-size:100%,50%;
+		background-attachment:fixed;
+	}
+	h1
+	{
+		font-weight:bold;
+		font-size:50px;
+		color:red;
+	}
+	table
+	{
+		font-size:20px;
+	}
+	</style>
+</head>
+<body>
+	<form name="myform" method="POST" action="register.jsp" onsubmit="return myFun()">
+		<table align="center" cellspacing="20">
+		    <tr>
+			<th colspan="2" align="center"><h1>Create Your Account</h1></th>
+		     <tr>
+			<td>Enter Your Name(with surname):</td>
+			<td><input type="text" name="user"/></td>
+		     </tr>
+		     <tr>
+			<td>Enter your Email:</td>
+			<td><input type="email" name="email"/></td>
+		     </tr>
+		     <tr>
+			<td>Enter Password:</td>
+			<td><input type="password" name="pwd"/></td>
+		
+		     </tr>
+		     <tr>
+			<td>Confirm Password:</td>
+			<td><input type="password" name="pas"/></td>
+		      </tr>
+		     <tr>
+			<td>Enter your age:</td>
+			<td><input type="text" name="age"/></td>
+		      </tr>
+		      <tr>
+			<td>Enter your Gender:</td>
+			<td><input type="radio" name="gender" value="male"/>Male<br>
+			    <input type="radio" name="gender" value="female"/>Female</td> 
+		      </tr>
+		       <tr>
+			<td><input type="submit" value="Create Account"/>
+			<td><input type="reset" value="clear"/>
+
+		       </tr>
+		</table>
+	</form>
+</body>
+</html>

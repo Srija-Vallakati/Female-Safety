@@ -1,0 +1,65 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function myFun()
+		{
+			var email=document.myform.email.value;
+			var pas=document.myform.pwd.value;
+			var upperStatus=/[A-Z]+/.test(pas);
+			var lowerStatus=/[a-z]+/.test(pas);
+			var specialStatus=/[@#$]+/.test(pas);
+			var flag=0;
+			if(email=="" || email==null)
+			{
+				alert("please enter your email");
+				document.myform.email.focus();
+				return false;
+			}
+			if(pas=="" || pas==null)
+			{
+				alert("please enter your password");
+				document.myform.pwd.focus();
+				return false;
+			}
+			if(upperStatus && lowerStatus && specialStatus)
+			{
+				flag=1;
+			}
+			if(flag==0)
+			{
+				alert("please enter atleast one uppercase,lowercase and special characters");
+				document.myform.pwd.focus();
+				return false;
+			}
+		}
+	</script>
+	<style>
+	body
+	{
+		background-image:url("empowering-women.png");
+		background-repeat:no-repeat;
+		background-size:100%,50%;
+		background-attachment:fixed;
+	}
+	</style>
+</head>
+  </head>
+  <body>
+	<form name="myform" action="reset.html" onsubmit="return myFun()">
+		<table align="center" cellspacing="20">
+			<tr>
+				<td>Enter your email:</td>
+				<td><input type="email" placeholder="Email" name="email"/></td>
+			</tr>
+			<tr>
+				<td>Enter your New Password:</td>
+				<td><input type="password" placeholder="Password" name="pwd"/></td>
+			</tr>
+			<tr>
+				<td>Confirm your New Password:</td>
+				<td><input type="password" placeholder="Confirm password" name="pwd1"/></td>
+			</tr>
+		</table>
+	</form>
+   </body>
+</html>
